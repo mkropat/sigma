@@ -1,0 +1,10 @@
+#!/bin/sh
+
+set -eu
+
+(cd sigmalib && make)
+
+mkdir -p sigmajar/src/main/resources && cp sigmalib/build/sigmalib.so sigmajar/src/main/resources/
+(cd sigmajar && ./gradlew build)
+
+mkdir -p sigma/resources/ && cp sigmajar/build/libs/sigma.jar sigma/resources/
