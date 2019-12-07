@@ -2,6 +2,9 @@
   (:gen-class))
 
 (defn -main
-  "I don't do a whole lot ... yet."
   [& args]
-  (println "Hello, World!"))
+  (def s (new com.codetinkerer.sigma.SigmaBridge))
+  (def ctx (.initContext s))
+  (.loop s ctx)
+  (.cleanup s ctx)
+)
